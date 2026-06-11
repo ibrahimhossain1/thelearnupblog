@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Header from './Header'
 import Footer from './Footer'
+import AIChatbot from './AIChatbot'
 
 export default function LayoutWrapper({ children, siteConfig, socialConfig }) {
   const pathname = usePathname()
@@ -18,6 +19,7 @@ export default function LayoutWrapper({ children, siteConfig, socialConfig }) {
       <main className="flex-grow">
         {children}
       </main>
+      <AIChatbot />
       <Footer siteConfig={siteConfig} socialConfig={socialConfig} />
     </>
   )
