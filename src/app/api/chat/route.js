@@ -135,9 +135,9 @@ ${currentPostContext.bodyPlainText.slice(0, 10000)}
       )
     }
 
-    const selectedModel = model || 'openai/gpt-oss-120b:free'
+    const selectedModel = model || 'openrouter/free'
 
-    const apiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    let apiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -154,6 +154,29 @@ ${currentPostContext.bodyPlainText.slice(0, 10000)}
         temperature: 0.2, // Keep it focused and factual
       })
     })
+
+    if (!apiResponse.ok && selectedModel !== 'openrouter/free') {
+      const errText = await apiResponse.text()
+      console.warn(`Model ${selectedModel} failed with status ${apiResponse.status}: ${errText}. Retrying with fallback model openrouter/free...`)
+      
+      apiResponse = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${openRouterApiKey}`,
+          'HTTP-Referer': 'https://thelearnup.com',
+          'X-Title': 'The Learn Up Blog',
+        },
+        body: JSON.stringify({
+          model: 'openrouter/free',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            ...messages
+          ],
+          temperature: 0.2,
+        })
+      })
+    }
 
     if (!apiResponse.ok) {
       const errText = await apiResponse.text()

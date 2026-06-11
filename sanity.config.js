@@ -93,9 +93,7 @@ export default defineConfig({
                   .items([
                     S.documentTypeListItem('post').title('All Posts'),
                     S.documentTypeListItem('category').title('Categories'),
-                    S.listItem()
-                      .title('Tags')
-                      .child(S.component(TagsPanel).title('Tags')),
+                    S.documentTypeListItem('tag').title('Tags'),
                   ])
               ),
 

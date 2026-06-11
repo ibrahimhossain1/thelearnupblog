@@ -391,7 +391,7 @@ export default async function BlogPostPage({ params }) {
           {/* Section Jump / Table of Contents */}
           {headings.length > 0 && (
             <div className="p-6 rounded-3xl border border-zinc-200/80 dark:border-zinc-800/40 bg-zinc-50/50 dark:bg-zinc-900/20 shadow-sm transition-all duration-300">
-              <h3 className="text-xs font-bold tracking-wider text-zinc-450 dark:text-zinc-400 uppercase mb-4">
+              <h3 className="text-xs font-bold tracking-wider text-zinc-400 dark:text-zinc-450 uppercase mb-4">
                 Table of Contents (Jump to Section)
               </h3>
               <ul className="space-y-2.5 text-sm">
@@ -429,7 +429,7 @@ export default async function BlogPostPage({ params }) {
 
           {/* Related Posts Recommendation Grid */}
           {relatedPosts.length > 0 && (
-            <div className="pt-8 border-t border-zinc-100 dark:border-zinc-850">
+            <div className="pt-8 border-t border-zinc-100 dark:border-zinc-800">
               <h3 className="text-sm font-bold tracking-wider text-zinc-400 dark:text-zinc-500 uppercase mb-6">
                 You May Also Like
               </h3>
@@ -459,7 +459,7 @@ export default async function BlogPostPage({ params }) {
                         )}
                       </div>
                       <div className="space-y-1">
-                        <h4 className="text-sm font-bold text-zinc-850 dark:text-zinc-100 line-clamp-2 leading-snug group-hover:text-primary transition-colors">
+                        <h4 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 line-clamp-2 leading-snug group-hover:text-primary transition-colors">
                           {relPost.title}
                         </h4>
                         <span className="text-[10px] text-zinc-400 dark:text-zinc-500">
@@ -495,4 +495,23 @@ export default async function BlogPostPage({ params }) {
       </div>
     </article>
   )
+}
+
+export async function generateStaticParams() {
+  try {
+    const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+    if (projectId && projectId !== 'your-project-id') {
+      const posts = await client.fetch(`*[_type == "post" && (status == "publish" || (status == "schedule" && publishedAt <= now()) || !defined(status))] { "slug": slug.current }`)
+      return posts.map((post) => ({
+        slug: post.slug,
+      }))
+    }
+  } catch (err) {
+    console.warn('Failed to generate static params for posts:', err.message)
+  }
+
+  // Fallback to mock data slugs
+  return mockPosts.map((post) => ({
+    slug: post.slug.current,
+  }))
 }
