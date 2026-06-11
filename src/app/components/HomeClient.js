@@ -164,8 +164,8 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
                       <p className="text-xs text-zinc-550 dark:text-zinc-400 line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
-                      <div className="flex items-center gap-4 pt-3 border-t border-zinc-200/60 dark:border-zinc-850 text-[10px] text-zinc-455 dark:text-zinc-500">
-                        <span className="font-semibold text-zinc-755 dark:text-zinc-300">{post.author?.name || 'Admin'}</span>
+                      <div className="flex items-center gap-4 pt-3 border-t border-zinc-200/60 dark:border-zinc-800 text-[10px] text-zinc-500 dark:text-zinc-400">
+                        <span className="font-semibold text-zinc-700 dark:text-zinc-300">{post.author?.name || 'Admin'}</span>
                         <span>•</span>
                         <span>
                           {new Date(post.publishedAt).toLocaleDateString('en-US', {
@@ -249,7 +249,7 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
                 placeholder="Search articles..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-850 bg-zinc-50 dark:bg-zinc-900/40 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary/30 transition-all"
+                className="w-full pl-11 pr-4 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/40 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary/30 transition-all"
               />
             </div>
             {(selectedCategory !== 'all' || searchQuery !== '') && (
@@ -258,7 +258,7 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
                   setSelectedCategory('all')
                   setSearchQuery('')
                 }}
-                className="px-4 py-3 rounded-2xl bg-zinc-150 dark:bg-zinc-850 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-650 dark:text-zinc-305 font-bold text-xs transition-colors shrink-0"
+                className="px-4 py-3 rounded-2xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-300 font-bold text-xs transition-colors shrink-0"
               >
                 Reset
               </button>
@@ -316,13 +316,13 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
                         </Link>
                       </h3>
 
-                      <p className="text-xs text-zinc-550 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-850/60 text-[10px] text-zinc-455 dark:text-zinc-500">
-                      <span className="font-semibold text-zinc-755 dark:text-zinc-300">{post.author?.name || 'Admin'}</span>
+                    <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800/50 text-[10px] text-zinc-400 dark:text-zinc-500">
+                      <span className="font-semibold text-zinc-700 dark:text-zinc-300">{post.author?.name || 'Admin'}</span>
                       <span>
                         {new Date(post.publishedAt).toLocaleDateString('en-US', {
                           month: 'short',
@@ -394,13 +394,13 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
                         </Link>
                       </h3>
 
-                      <p className="text-xs text-zinc-550 dark:text-zinc-400 line-clamp-3 leading-relaxed">
+                      <p className="text-xs text-zinc-600 dark:text-zinc-400 line-clamp-3 leading-relaxed">
                         {post.excerpt}
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-850/60 text-[10px] text-zinc-455 dark:text-zinc-500">
-                      <span className="font-semibold text-zinc-755 dark:text-zinc-300">{post.author?.name || 'Admin'}</span>
+                    <div className="flex items-center justify-between pt-4 border-t border-zinc-100 dark:border-zinc-800/50 text-[10px] text-zinc-400 dark:text-zinc-500">
+                      <span className="font-semibold text-zinc-700 dark:text-zinc-300">{post.author?.name || 'Admin'}</span>
                       <span>
                         {new Date(post.publishedAt).toLocaleDateString('en-US', {
                           month: 'short',
@@ -420,7 +420,7 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
       {/* 3. YouTube Video Showcase Widget */}
       <section className="space-y-6 pt-4">
         <div className="flex flex-col gap-1">
-          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-850 dark:text-zinc-100 flex items-center gap-2">
+          <h2 className="text-xl md:text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 flex items-center gap-2">
             <Tv size={20} className="text-primary" />
             <span>Featured Video Guides</span>
           </h2>
@@ -443,7 +443,7 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
               </div>
               <div className="p-5 flex-grow flex flex-col justify-between space-y-2">
                 <div className="space-y-1">
-                  <h4 className="font-bold text-zinc-850 dark:text-zinc-150 text-sm leading-snug group-hover:text-primary transition-colors">
+                  <h4 className="font-bold text-zinc-800 dark:text-zinc-200 text-sm leading-snug group-hover:text-primary transition-colors">
                     {video.title}
                   </h4>
                   {video.description && (
@@ -467,10 +467,10 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
         
         <div className="space-y-2 z-10 max-w-xl">
-          <h3 className="font-extrabold text-zinc-850 dark:text-zinc-100 text-2xl md:text-3xl tracking-tight leading-tight">
+          <h3 className="font-extrabold text-zinc-800 dark:text-zinc-100 text-2xl md:text-3xl tracking-tight leading-tight">
             Stay Ahead of the Curve
           </h3>
-          <p className="text-xs md:text-sm text-zinc-550 dark:text-zinc-400 leading-relaxed">
+          <p className="text-xs md:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
             Join the community newsletter of <strong>The Learn Up</strong> to receive weekly guides, exclusive prompt packs, and web development resources directly in your inbox.
           </p>
         </div>
@@ -482,7 +482,7 @@ export default function HomeClient({ posts = [], categories = [], youtubeVideos 
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email address"
-            className="flex-grow px-5 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary/30 transition-all text-zinc-850 dark:text-zinc-100 shadow-sm"
+            className="flex-grow px-5 py-3 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary/30 transition-all text-zinc-800 dark:text-zinc-100 shadow-sm"
           />
           <button
             type="submit"

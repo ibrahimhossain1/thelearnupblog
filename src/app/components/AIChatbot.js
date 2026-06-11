@@ -273,9 +273,9 @@ export default function AIChatbot() {
 
       {/* Chat Window Container */}
       {isOpen && (
-        <div className="w-[90vw] sm:w-[400px] h-[550px] max-h-[80vh] flex flex-col rounded-3xl border border-zinc-200/50 dark:border-zinc-850 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-lg shadow-2xl overflow-hidden transition-all duration-300 animate-in fade-in slide-in-from-bottom-6">
+        <div className="w-[90vw] sm:w-[400px] h-[550px] max-h-[80vh] flex flex-col rounded-3xl border border-zinc-200/50 dark:border-zinc-800 bg-white/90 dark:bg-zinc-900/90 backdrop-blur-lg shadow-2xl overflow-hidden transition-all duration-300 animate-in fade-in slide-in-from-bottom-6">
           {/* Header */}
-          <div className="px-5 py-4 bg-zinc-950 dark:bg-zinc-900 text-white flex items-center justify-between border-b border-zinc-850 relative">
+          <div className="px-5 py-4 bg-zinc-950 dark:bg-zinc-900 text-white flex items-center justify-between border-b border-zinc-800 relative">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-2xl bg-indigo-500/10 dark:bg-indigo-400/10 flex items-center justify-center text-xs font-black tracking-tighter text-indigo-400 border border-indigo-500/20">
                 ASK
@@ -301,14 +301,14 @@ export default function AIChatbot() {
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto px-5 py-6 space-y-4 scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-zinc-850">
+          <div className="flex-1 overflow-y-auto px-5 py-6 space-y-4 scrollbar-thin scrollbar-thumb-zinc-200 dark:scrollbar-thumb-zinc-800">
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={`flex gap-3 max-w-[85%] ${msg.role === 'user' ? 'ml-auto flex-row-reverse' : ''}`}
               >
                 {/* Avatar */}
-                <div className={`w-7 h-7 rounded-xl flex items-center justify-center shrink-0 text-xs border ${msg.role === 'user' ? 'bg-zinc-100 dark:bg-zinc-850 border-zinc-200/50 dark:border-zinc-850' : 'bg-indigo-500/10 border-indigo-500/20 text-indigo-500 dark:text-indigo-400 font-bold'}`}>
+                <div className={`w-7 h-7 rounded-xl flex items-center justify-center shrink-0 text-xs border ${msg.role === 'user' ? 'bg-zinc-100 dark:bg-zinc-800 border-zinc-200/50 dark:border-zinc-800' : 'bg-indigo-500/10 border-indigo-500/20 text-indigo-500 dark:text-indigo-400 font-bold'}`}>
                   {msg.role === 'user' ? (
                     <User className="w-3.5 h-3.5 text-zinc-650 dark:text-zinc-350" />
                   ) : (
@@ -316,7 +316,7 @@ export default function AIChatbot() {
                   )}
                 </div>
                 {/* Message Bubble */}
-                <div className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 rounded-tr-none' : 'bg-zinc-100/80 dark:bg-zinc-850/60 text-zinc-800 dark:text-zinc-200 rounded-tl-none border border-zinc-200/30 dark:border-zinc-800/30'}`}>
+                <div className={`rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${msg.role === 'user' ? 'bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 rounded-tr-none' : 'bg-zinc-100/80 dark:bg-zinc-800/60 text-zinc-800 dark:text-zinc-200 rounded-tl-none border border-zinc-200/30 dark:border-zinc-800/30'}`}>
                   {msg.role === 'user' ? (
                     <p className="whitespace-pre-wrap">{msg.content}</p>
                   ) : (
@@ -334,7 +334,7 @@ export default function AIChatbot() {
                 <div className="w-7 h-7 rounded-xl flex items-center justify-center shrink-0 border bg-indigo-500/10 border-indigo-500/20 text-indigo-500 dark:text-indigo-400 font-bold animate-pulse">
                   <span className="text-[9px] font-black tracking-tighter">ASK</span>
                 </div>
-                <div className="rounded-2xl rounded-tl-none px-4 py-3 bg-zinc-100/80 dark:bg-zinc-850/60 text-zinc-500 flex items-center gap-1">
+                <div className="rounded-2xl rounded-tl-none px-4 py-3 bg-zinc-100/80 dark:bg-zinc-800/60 text-zinc-500 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce duration-300" style={{ animationDelay: '0ms' }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce duration-300" style={{ animationDelay: '150ms' }} />
                   <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 dark:bg-zinc-500 animate-bounce duration-300" style={{ animationDelay: '300ms' }} />
@@ -347,7 +347,7 @@ export default function AIChatbot() {
 
           {/* Quick Actions Panel */}
           {isPostPage && !isLoading && (
-            <div className="px-5 py-2.5 border-t border-zinc-150 dark:border-zinc-850 bg-zinc-50/50 dark:bg-zinc-900/30 flex gap-2 overflow-x-auto">
+            <div className="px-5 py-2.5 border-t border-zinc-200/60 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/30 flex gap-2 overflow-x-auto">
               <button
                 onClick={handleSummarize}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold text-primary dark:text-primary-hover bg-primary/10 hover:bg-primary/20 border border-primary/10 transition-colors shrink-0"
@@ -364,7 +364,7 @@ export default function AIChatbot() {
               e.preventDefault()
               handleSend()
             }}
-            className="p-4 border-t border-zinc-150 dark:border-zinc-850 bg-white dark:bg-zinc-900 flex gap-2.5 items-center"
+            className="p-4 border-t border-zinc-200/60 dark:border-zinc-800 bg-white dark:bg-zinc-900 flex gap-2.5 items-center"
           >
             <input
               type="text"
@@ -372,7 +372,7 @@ export default function AIChatbot() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about blog posts..."
               disabled={isLoading}
-              className="flex-grow px-4 py-2.5 rounded-2xl text-sm border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-850 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all disabled:opacity-50"
+              className="flex-grow px-4 py-2.5 rounded-2xl text-sm border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:text-white transition-all disabled:opacity-50"
             />
             <button
               type="submit"

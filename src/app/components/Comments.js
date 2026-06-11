@@ -163,7 +163,7 @@ export default function Comments({ postId, initialComments = [] }) {
             {comments.map((c) => (
               <div
                 key={c._id}
-                className="p-6 rounded-3xl border border-zinc-150 dark:border-zinc-850/60 bg-white dark:bg-zinc-900/10 flex gap-4"
+                className="p-6 rounded-3xl border border-zinc-100 dark:border-zinc-800/50 bg-white dark:bg-zinc-900/10 flex gap-4"
               >
                 <div className="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-500 font-bold uppercase shrink-0">
                   <User size={16} />
