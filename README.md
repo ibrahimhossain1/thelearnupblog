@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Learn Up Blog 🚀
 
-## Getting Started
+A modern, high-performance, and feature-rich blog site built with **Next.js**, **Tailwind CSS**, and **Sanity CMS**. It includes Google AdSense integration, custom comment moderation, distraction-free focus mode, newsletter subscription, and a responsive reading experience.
 
-First, run the development server:
+---
+
+## Features ✨
+
+* **Headless CMS:** Fully integrated with [Sanity.io](https://sanity.io) for managing articles, authors, categories, comments, and settings.
+* **Google AdSense Integration:** Ready-to-go ad slots configurable directly from the Sanity Studio dashboard.
+* **Distraction-Free Reading:** Built-in **Focus Mode** toggler that hides layout elements for an immersive reading experience.
+* **Read Aloud:** Accessibility feature that reads blog posts aloud to users using Web Speech API.
+* **Interactive Comments:** Moderated comment system where visitors can share feedback (requires approval in Sanity Studio).
+* **Newsletter Signup:** A beautiful subscription widget to capture visitor emails.
+* **Dark & Light Mode:** Seamless theme support matching user system preferences or custom toggling.
+* **Performance Optimized:** Rapid load times using Next.js App Router, image caching, and parallel CMS data queries.
+
+---
+
+## Tech Stack 🛠️
+
+* **Frontend:** Next.js (App Router, React 19)
+* **Styling:** Tailwind CSS (v4)
+* **Database & CMS:** Sanity.io (Next-Sanity client)
+* **Icons:** Lucide React
+* **Animations:** Framer Motion
+
+---
+
+## Getting Started 💻
+
+### 1. Clone & Install Dependencies
+
+First, navigate to your project directory and install the required packages:
+
+```bash
+npm install
+```
+
+### 2. Configure Environment Variables
+
+Create a `.env.local` file in the root directory and add your Sanity credentials (refer to `.env.local` template):
+
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID="your-sanity-project-id"
+NEXT_PUBLIC_SANITY_DATASET="production"
+SANITY_API_WRITE_TOKEN="your-sanity-write-token"
+```
+
+### 3. Run the Development Server
+
+Start the local development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the live blog.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 4. Open Sanity Studio
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To manage content, launch the Sanity Studio:
 
-## Learn More
+```bash
+# Locally embedded at /studio
+# Run Next.js and open: http://localhost:3000/studio
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment 🌐
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is optimized to be deployed on **Vercel** or **Cloudflare Pages**. 
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deploying to Vercel
+1. Push your repository to GitHub.
+2. Import the project into Vercel.
+3. Configure the environment variables (`NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`, and `SANITY_API_WRITE_TOKEN`) in the Vercel dashboard.
+4. Click **Deploy**.
